@@ -13,6 +13,16 @@
         .title-font { font-family: 'Space Grotesk', sans-serif; }
         .product-card { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
         .product-card:hover { transform: translateY(-12px); }
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            filter: brightness(0.6);
+        }
     </style>
 </head>
 <body class="bg-zinc-950 text-zinc-100">
@@ -33,12 +43,17 @@
         </div>
     </nav>
 
-    <!-- Hero -->
-    <section class="min-h-screen bg-gradient-to-br from-zinc-900 to-black flex items-center text-center">
-        <div class="max-w-5xl mx-auto px-6">
-            <h1 class="title-font text-6xl md:text-7xl font-bold mb-6">IMB Digitale Agency</h1>
-            <p class="text-2xl text-zinc-300 mb-10">Logiciels Premium • Formations • Solutions Digitales en Guinée</p>
-            <a href="#shop" class="bg-emerald-500 hover:bg-emerald-600 px-12 py-6 rounded-3xl text-xl font-semibold">Découvrir la Boutique</a>
+    <!-- Hero avec Vidéo d'arrière-plan -->
+    <section class="relative min-h-screen flex items-center overflow-hidden">
+        <video autoplay muted loop playsinline class="hero-video">
+            <source src="video1.mp4" type="video/mp4">
+            Votre navigateur ne supporte pas la vidéo.
+        </video>
+        
+        <div class="relative z-10 max-w-5xl mx-auto px-6 text-center">
+            <h1 class="title-font text-6xl md:text-7xl font-bold mb-6 text-white">IMB Digitale Agency</h1>
+            <p class="text-2xl text-zinc-200 mb-10 max-w-2xl mx-auto">Logiciels Premium • Formations • Solutions Digitales en Guinée</p>
+            <a href="#shop" class="inline-block bg-emerald-500 hover:bg-emerald-600 px-12 py-6 rounded-3xl text-xl font-semibold">Découvrir la Boutique</a>
         </div>
     </section>
 
@@ -46,7 +61,6 @@
     <section id="shop" class="py-20 bg-zinc-900">
         <div class="max-w-7xl mx-auto px-6">
             <h2 class="text-5xl font-bold title-font text-center mb-12">Nos Produits</h2>
-            
             <div class="flex flex-col md:flex-row gap-6 mb-12 bg-zinc-800 p-6 rounded-3xl">
                 <input id="search" type="text" placeholder="Rechercher un produit..." class="flex-1 bg-zinc-900 border border-zinc-700 rounded-3xl px-6 py-4">
                 <div class="flex-1">
@@ -54,18 +68,16 @@
                     <input type="range" id="price-filter" min="10000" max="200000" value="200000" class="w-full accent-emerald-500">
                 </div>
             </div>
-
             <div id="products-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"></div>
         </div>
     </section>
 
-    <!-- Footer Personnalisé -->
+    <!-- Footer -->
     <footer class="bg-black py-20">
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12">
-            <!-- Colonne 1 -->
             <div>
                 <img src="logo2.jpg" alt="IMB" class="h-14 mb-6">
-                <p class="text-zinc-400 leading-relaxed">Votre partenaire de confiance pour les logiciels professionnels, antivirus, outils d'ingénierie et formations digitales en Guinée.</p>
+                <p class="text-zinc-400">Votre partenaire de confiance pour les logiciels professionnels et formations digitales en Guinée.</p>
                 <div class="flex gap-5 mt-8">
                     <a href="#" class="text-zinc-400 hover:text-emerald-400 text-2xl"><i class="fa-brands fa-facebook"></i></a>
                     <a href="#" class="text-zinc-400 hover:text-emerald-400 text-2xl"><i class="fa-brands fa-whatsapp"></i></a>
@@ -74,43 +86,35 @@
                 </div>
             </div>
 
-            <!-- Colonne 2 -->
             <div>
                 <h3 class="font-semibold text-lg mb-6">Liens Rapides</h3>
                 <ul class="space-y-3 text-zinc-400">
                     <li><a href="#shop" class="hover:text-emerald-400">Boutique</a></li>
                     <li><a href="#" class="hover:text-emerald-400">Formations</a></li>
-                    <li><a href="#" class="hover:text-emerald-400">Logiciels Populaires</a></li>
-                    <li><a href="#" onclick="showOrders()" class="hover:text-emerald-400">Mes Commandes</a></li>
+                    <li><a href="#" class="hover:text-emerald-400">Mes Commandes</a></li>
                 </ul>
             </div>
 
-            <!-- Colonne 3 -->
             <div>
                 <h3 class="font-semibold text-lg mb-6">Contact</h3>
                 <ul class="space-y-4 text-zinc-400">
-                    <li class="flex items-center gap-3"><i class="fa-solid fa-phone"></i> +224 622 12 34 56</li>
+                    <li class="flex items-center gap-3"><i class="fa-solid fa-phone"></i> +224 611 17 86 15</li>
                     <li class="flex items-center gap-3"><i class="fa-solid fa-envelope"></i> contact@imbagency.gn</li>
-                    <li class="flex items-center gap-3"><i class="fa-solid fa-location-dot"></i> Kaloum, Conakry, Guinée</li>
+                    <li class="flex items-center gap-3"><i class="fa-solid fa-location-dot"></i> Kaloum, Conakry</li>
                 </ul>
             </div>
 
-            <!-- Colonne 4 -->
             <div>
                 <h3 class="font-semibold text-lg mb-6">Horaires</h3>
                 <ul class="space-y-3 text-zinc-400">
-                    <li>Lundi - Vendredi : 8h00 - 18h00</li>
-                    <li>Samedi : 9h00 - 14h00</li>
+                    <li>Lundi - Vendredi : 8h - 18h</li>
+                    <li>Samedi : 9h - 14h</li>
                     <li>Dimanche : Fermé</li>
                 </ul>
-                <div class="mt-10">
-                    <p class="text-emerald-400 font-medium">Paiements acceptés :</p>
-                    <p class="text-zinc-500 text-sm">Visa • Mastercard • Binance • Orange Money • MTN Money</p>
-                </div>
             </div>
         </div>
 
-        <div class="text-center text-zinc-500 text-sm mt-16 pt-8 border-t border-zinc-800">
+        <div class="text-center text-zinc-500 text-sm mt-16 border-t border-zinc-800 pt-8">
             © 2026 IMB Digitale Agency - Tous droits réservés
         </div>
     </footer>
@@ -119,8 +123,7 @@
         let products = JSON.parse(localStorage.getItem('imb_products')) || [
             {id:1, name:"Microsoft Office 2021 Pro", price:45000, image:"https://picsum.photos/id/201/400/280"},
             {id:2, name:"Kaspersky Total Security 2025", price:35000, image:"https://picsum.photos/id/237/400/280"},
-            {id:3, name:"AutoCAD 2025", price:135000, image:"https://picsum.photos/id/180/400/280"},
-            {id:4, name:"Adobe Premiere Pro", price:95000, image:"https://picsum.photos/id/1015/400/280"}
+            {id:3, name:"AutoCAD 2025", price:135000, image:"https://picsum.photos/id/180/400/280"}
         ];
 
         let cart = [];
@@ -148,7 +151,7 @@
         function toggleCart() {
             if (cart.length === 0) return alert("Votre panier est vide.");
             const total = cart.reduce((sum, item) => sum + item.price, 0);
-            if (confirm(`Total à payer : ${total.toLocaleString()} GNF\nProcéder au paiement ?`)) {
+            if (confirm(`Total : ${total.toLocaleString()} GNF\nProcéder au paiement ?`)) {
                 const newOrder = {id: Date.now(), date: new Date().toLocaleDateString('fr-FR'), total, items: cart.length};
                 orders.unshift(newOrder);
                 localStorage.setItem('imb_orders', JSON.stringify(orders));
@@ -159,8 +162,8 @@
         }
 
         function showOrders() {
-            let text = orders.length ? orders.map(o => `#${o.id} - ${o.date} - ${o.total.toLocaleString()} GNF`).join("\n") : "Aucune commande pour le moment.";
-            alert("📋 Historique des commandes :\n\n" + text);
+            let text = orders.length ? orders.map(o => `#${o.id} - ${o.date} - ${o.total.toLocaleString()} GNF`).join("\n") : "Aucune commande";
+            alert("Historique :\n\n" + text);
         }
 
         function showAdminPanel() {
@@ -177,14 +180,8 @@
         }
 
         function initCharts() {
-            new Chart(document.getElementById('salesChart'), {
-                type: 'line',
-                data: { labels: ['Jan','Fév','Mar','Avr','Mai','Juin'], datasets: [{ label: 'Ventes', data: [450000,680000,520000,890000,1240000,1450000], borderColor: '#10b981', tension: 0.4 }] }
-            });
-            new Chart(document.getElementById('categoryChart'), {
-                type: 'doughnut',
-                data: { labels: ['Office','Sécurité','Ingénierie','Formation'], datasets: [{ data: [40,25,20,15], backgroundColor: ['#10b981','#3b82f6','#eab308','#a855f7'] }] }
-            });
+            new Chart(document.getElementById('salesChart'), { type: 'line', data: { labels: ['Jan','Fév','Mar','Avr','Mai','Juin'], datasets: [{ label: 'Ventes', data: [450000,680000,520000,890000,1240000,1450000], borderColor: '#10b981', tension: 0.4 }] }});
+            new Chart(document.getElementById('categoryChart'), { type: 'doughnut', data: { labels: ['Office','Sécurité','Ingénierie','Formation'], datasets: [{ data: [40,25,20,15], backgroundColor: ['#10b981','#3b82f6','#eab308','#a855f7'] }] }});
         }
 
         function renderAdminProducts() {
@@ -212,7 +209,7 @@
         }
 
         function deleteProduct(id) {
-            if (confirm("Supprimer ce produit ?")) {
+            if (confirm("Supprimer ?")) {
                 products = products.filter(p => p.id !== id);
                 localStorage.setItem('imb_products', JSON.stringify(products));
                 renderAdminProducts();
@@ -240,7 +237,6 @@
             a.click();
         }
 
-        // Filtres
         document.getElementById('search').addEventListener('input', filterProducts);
         document.getElementById('price-filter').addEventListener('input', filterProducts);
 
